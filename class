@@ -1,0 +1,14 @@
+public class accController
+{
+    @AuraEnabled
+    public static List<Account> getAcc()
+    {
+        return [Select Name from Account ];
+    }
+    @AuraEnabled
+    public static void deleteAcc(Id accountId)
+    {
+       List<Account> acctList = [Select Id from Account where Id =: accountId];
+        delete acctList;
+    }
+}
